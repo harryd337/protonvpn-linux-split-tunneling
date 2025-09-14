@@ -1,0 +1,37 @@
+[Unit]
+Description=ProtonVPN Split Tunnel Monitor
+Documentation=https://github.com/harryd337/protonvpn-linux-split-tunneling
+After=network.target network-online.target NetworkManager.service systemd-networkd.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+StartLimitInterval=300
+StartLimitBurst=5
+
+# Security hardening (must run as root to modify routing table)
+User=root
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log
+ProtectKernelTunables=false
+PrivateNetwork=false
+
+# Process management
+ExecStart=/usr/local/bin/protonvpn-split-tunnel-monitor.sh
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=protonvpn-split-tunnel
+
+[Install]
+WantedBy=multi-user.target

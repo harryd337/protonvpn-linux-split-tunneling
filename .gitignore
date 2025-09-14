@@ -1,0 +1,19 @@
+# Configuration files
+/config/protonvpn-split-tunnel.conf
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
