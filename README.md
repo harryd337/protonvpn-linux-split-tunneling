@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Shell](https://img.shields.io/badge/Shell-Bash-green.svg)](https://www.gnu.org/software/bash/)
 
-Automated bash scripts for implementing split tunneling with ProtonVPN on Linux. This solution allows you to exclude specific IP addresses or network ranges from going through the VPN tunnel, routing them directly through your regular internet connection instead.
+Automated bash scripts for implementing split tunneling with [ProtonVPN](https://protonvpn.com/) on Linux. This solution allows you to exclude specific IP addresses or network ranges from going through the VPN tunnel, routing them directly through your regular internet connection instead.
 
 Split tunneling is a feature built-in to ProtonVPN on all other platforms, but unfortunately Proton have not prioritised implementing it for Linux, so this is my attempt to provide a workaround.
 
@@ -19,7 +19,7 @@ Split tunneling is a feature built-in to ProtonVPN on all other platforms, but u
 ## 📋 Requirements
 
 - Linux system with systemd
-- ProtonVPN client installed and configured
+- [ProtonVPN](https://protonvpn.com/download-linux) client installed and configured
 - Root/sudo access for installation
 - `ip`, `pgrep`, and `logger` utilities (typically pre-installed)
 
