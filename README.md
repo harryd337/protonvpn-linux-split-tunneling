@@ -5,6 +5,8 @@
 
 Automated bash scripts for implementing split tunneling with ProtonVPN on Linux. This solution allows you to exclude specific IP addresses or network ranges from going through the VPN tunnel, routing them directly through your regular internet connection instead.
 
+Split tunneling is a feature built-in to ProtonVPN on all other platforms, but unfortunately Proton have not prioritised implementing it for Linux, so this is my attempt to provide a workaround.
+
 ## 🚀 Features
 
 - **Automatic Detection**: Monitors ProtonVPN connection status and applies exclusions automatically
@@ -12,17 +14,7 @@ Automated bash scripts for implementing split tunneling with ProtonVPN on Linux.
 - **Robust Monitoring**: Handles manual VPN restarts and connection interruptions
 - **Headless Compatible**: Works on servers and headless systems with no desktop environment required
 - **Systemd Integration**: Runs as a system service with proper logging and error handling
-- **Security Hardened**: Follows systemd security best practices
 - **Configurable**: Easy-to-modify configuration file for managing exclusions
-- **Comprehensive Logging**: Detailed logs for troubleshooting and monitoring
-
-### Common Use Cases
-
-- **Local Network Devices**: Printers, NAS, smart home devices
-- **Work VPN Endpoints**: Corporate network access
-- **Gaming Servers**: Reduce latency for specific game servers
-- **Streaming Services**: Access geo-restricted content on specific devices
-- **Development Servers**: Direct access to development environments
 
 ## 📋 Requirements
 
@@ -35,18 +27,11 @@ Automated bash scripts for implementing split tunneling with ProtonVPN on Linux.
 
 The configuration file is located at `/usr/local/etc/protonvpn-split-tunnel.conf` and must be created before installation.
 
-To modify your configuration after installation:
+It must contain an `EXCLUSIONS` variable defining an array of the IP addresses/networks you want to exclude from the VPN tunnel.
+
+### Configuration Example
 
 ```bash
-sudo nano /usr/local/etc/protonvpn-split-tunnel.conf
-# After making changes, restart the service:
-sudo systemctl restart protonvpn-split-tunnel.service
-```
-
-### Configuration Examples
-
-```bash
-# Array of IP addresses/networks to exclude from VPN tunnel
 EXCLUSIONS=(
     "192.168.1.10/32"    # Single IP (local printer)
     "192.168.1.0/24"     # Entire local network
@@ -86,7 +71,6 @@ EXCLUSIONS=(
 
 ### Step 3: Run the Installer
 ```bash
-chmod +x install.sh
 sudo ./install.sh
 ```
 
