@@ -38,7 +38,7 @@ validate_files() {
         "scripts/protonvpn-split-tunnel-add.sh"
         "scripts/protonvpn-split-tunnel-remove.sh"
         "scripts/protonvpn-split-tunnel-monitor.sh"
-        "config/protonvpn-split-tunnel.conf.example"
+        "examples/protonvpn-split-tunnel.conf.example"
         "systemd/protonvpn-split-tunnel.service"
     )
     
@@ -82,7 +82,7 @@ check_config() {
         log ""
         log "Steps to create the configuration:"
         log "1. Copy the example configuration:"
-        log "   sudo cp ${SCRIPT_DIR}/config/protonvpn-split-tunnel.conf.example ${ETC_DIR}/protonvpn-split-tunnel.conf"
+        log "   sudo cp ${SCRIPT_DIR}/examples/protonvpn-split-tunnel.conf.example ${ETC_DIR}/protonvpn-split-tunnel.conf"
         log ""
         log "2. Edit the configuration file:"
         log "   sudo nano ${ETC_DIR}/protonvpn-split-tunnel.conf"

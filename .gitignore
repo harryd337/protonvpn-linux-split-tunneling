@@ -1,5 +1,5 @@
 # Configuration files
-/config/protonvpn-split-tunnel.conf
+/examples/protonvpn-split-tunnel.conf
 
 # Log files
 *.log

@@ -1,0 +1,15 @@
+#!/bin/bash
+# ProtonVPN Split Tunnel Configuration
+# Copy this file to: /usr/local/etc/protonvpn-split-tunnel.conf
+#
+# Define IP addresses that should bypass the VPN tunnel.
+# Use CIDR notation: /32 for single IPs, /24 for subnets.
+
+EXCLUSIONS=(
+    "192.168.1.10/32"    # Local printer
+    "192.168.1.0/24"     # Entire local network
+    # "10.0.0.100/32"    # Work server
+    # "203.0.113.0/24"   # External service
+    
+    # Add your exclusions here
+)

@@ -54,7 +54,7 @@ chmod +x install.sh
 
 ```bash
 # Copy the example configuration
-sudo cp config/protonvpn-split-tunnel.conf.example /usr/local/etc/protonvpn-split-tunnel.conf
+sudo cp examples/protonvpn-split-tunnel.conf.example /usr/local/etc/protonvpn-split-tunnel.conf
 
 # Edit the configuration file
 sudo nano /usr/local/etc/protonvpn-split-tunnel.conf
@@ -185,7 +185,7 @@ protonvpn-linux-split-tunneling/
 │   ├── protonvpn-split-tunnel-add.sh         # Adds route exclusions
 │   ├── protonvpn-split-tunnel-remove.sh      # Removes route exclusions
 │   └── protonvpn-split-tunnel-monitor.sh     # Main monitoring daemon
-├── config/                                     # Configuration templates
+├── examples/                                   # Configuration templates
 │   └── protonvpn-split-tunnel.conf.example   # Example configuration
 ├── systemd/                                    # Systemd service files
 │   └── protonvpn-split-tunnel.service        # Main monitoring service
@@ -202,6 +202,26 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 - Test on multiple Linux distributions
 - Update documentation for any new features
 - Ensure backward compatibility
+
+#### Development Testing
+
+Use the included `dev-test.sh` script for development and troubleshooting:
+
+```bash
+# Check all scripts for syntax errors
+./dev-test.sh syntax-check
+
+# Test configuration loading
+./dev-test.sh test-config
+
+# View current routing table and VPN status
+./dev-test.sh show-routes
+./dev-test.sh show-vpn
+./dev-test.sh show-exclusions
+
+# Simulate route additions (dry run)
+./dev-test.sh simulate-add
+```
 
 ## 📄 License
 
